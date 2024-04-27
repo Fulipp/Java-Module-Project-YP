@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+
+
 
 public class Calculator {
-    private List<Item> items;
+    List<Item> items;
 
     public Calculator() {
         this.items = new ArrayList<>();
@@ -21,7 +22,7 @@ public class Calculator {
         return total;
     }
 
-    public List<Item> getItems() {
+     List<Item> getItems() {
         return items;
     }
 
@@ -51,8 +52,8 @@ public class Calculator {
 
 
     static class Item {
-        private String name;
-        private double price;
+        public String name;
+        public double price;
 
         public Item(String name, double price) {
             this.name = name;

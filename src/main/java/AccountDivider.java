@@ -36,6 +36,7 @@ public class AccountDivider {
             System.out.println(item.getName() + ": " + String.format("%.2f", item.getPrice()) + " руб.");
         }
 
+
         calculator.splitBill(kGuests);
     }
 }
