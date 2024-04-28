@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+
 
 public class Calculator {
-    private List<Item> items;
+
+    List<Item> items;
 
     public Calculator() {
         this.items = new ArrayList<>();
@@ -21,7 +22,7 @@ public class Calculator {
         return total;
     }
 
-    public List<Item> getItems() {
+     List<Item> getItems() {
         return items;
     }
 
@@ -37,13 +38,15 @@ public class Calculator {
         // Определение окончания для "рубль"
         String suffix;
         int part = (int) totalBill;
-        if (part % 10 == 1 &&part % 100 != 11) {
+        int finalNumbers = part % 100;
+        if (part % 10 == 1 && finalNumbers != 11) {
             suffix = "рубль";
-        } else if (part % 10 >= 2 &&part % 10 <= 4 && (part % 100 < 10 ||part % 100 >= 20)) {
+        } else if (part % 10 >= 2 && part % 10 <= 4 && !(finalNumbers >= 12 && finalNumbers <= 14)) {
             suffix = "рубля";
         } else {
             suffix = "рублей";
         }
+
 
         System.out.println("Общая сумма счета: " + String.format("%.2f", totalBill) + " " + suffix + ".");
         System.out.println("Каждый гость должен заплатить по: " + String.format("%.2f", perPerson) + " " + suffix + ".");
@@ -51,8 +54,8 @@ public class Calculator {
 
 
     static class Item {
-        private String name;
-        private double price;
+        String name;
+        double price;
 
         public Item(String name, double price) {
             this.name = name;
